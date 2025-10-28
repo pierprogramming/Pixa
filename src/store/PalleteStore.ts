@@ -8,9 +8,14 @@ export interface IColor {
 }
 
 export const useColor = create<IColor>((set) => ({
-    currentColor: "",
+    currentColor: "#000000",
     usedColor: [],
     setCurrentColor: (color: string) => set(() => ({ currentColor: color })),
-    setUsedColor: (color: string) => set((state) => ({ usedColor: [...state.usedColor, color] }))
+    setUsedColor: (color: string) => set((state) => {
+        if(state.usedColor.indexOf(color) !== -1) {
+            state.usedColor.splice(state.usedColor.indexOf(color), 1);
+        }
+        return { usedColor: [color, ...state.usedColor] }
+    })
 }))
 

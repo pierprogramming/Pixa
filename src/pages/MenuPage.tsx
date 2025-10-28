@@ -1,5 +1,11 @@
+import Palette from "../components/Palette";
+
 const MenuPage = () => {
-  return <></>;
+  return (
+    <>
+      <Palette />
+    </>
+  );
 };
 
 export default MenuPage;
