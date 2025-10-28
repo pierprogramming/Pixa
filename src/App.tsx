@@ -1,9 +1,13 @@
 import "./App.css";
 
 const App = () => {
+  const onChangeColor = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <>
-      <p className="text-3xl font-bold underline">Heyyy</p>
+      <input type="color" onChange={onChangeColor} className="h-15 w-15" />
     </>
   );
 };
