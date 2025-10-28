@@ -4,11 +4,11 @@ import MenuPage from "./pages/MenuPage";
 
 const App = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex">
       <div className="w-5/6">
         <Canvas />
       </div>
-      <div className="bg-red-500 w-100">
+      <div className="bg-red-500 w-1/6">
         <MenuPage />
       </div>
     </div>

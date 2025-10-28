@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useCanvas, useSquare, type ISquare } from "../store/GridStore";
 import Square from "./Square";
 
-const ROW_SIZE = 4;
-const COL_SIZE = 4;
+const ROW_SIZE = 70;
+const COL_SIZE = 90;
 
 const Canvas = () => {
   const { setCol, setKey, setRow, setMouseIsDown, setMouseIsOver, setColor } =
@@ -46,14 +46,16 @@ const Canvas = () => {
   };
 
   return (
-    <div>
+    <div className="m-10">
       {canvas.map((sq, rId) => {
-        console.log(sq, rId);
-
         return (
-          <div className="" id={`row-${rId}`} key={`row-${rId}`}>
+          <div
+            className="flex justify-center"
+            id={`row-${rId}`}
+            key={`row-${rId}`}
+          >
             {sq.map((s) => {
-              return <Square sq={s} />;
+              return <Square sq={s} key={s.key} />;
             })}
           </div>
         );
