@@ -9,7 +9,7 @@ const ColorPicker = () => {
   };
 
   return (
-    <div className="flex justify-center mt-10">
+    <div className="">
       <input
         id="color-picker"
         type="color"
