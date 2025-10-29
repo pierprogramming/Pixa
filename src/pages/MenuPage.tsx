@@ -1,9 +1,11 @@
-import Palette from "../components/Palette";
+import ColorPicker from "../components/ColorPicker";
+import PaletteHistory from "../components/PaletteHistory";
 
 const MenuPage = () => {
   return (
     <>
-      <Palette />
+      <ColorPicker />
+      <PaletteHistory />
     </>
   );
 };

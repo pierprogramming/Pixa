@@ -30,7 +30,7 @@ export const useSquare = create<ISquare>((set) => ({
     col: 0,
     mouseIsDown: false,
     mouseIsOver: false,
-    color: '#FFFFFF',
+    color: '',
     key: '',
     setRow: (row: number) => set(() => ({ row })),
     setCol: (col: number) => set(() => ({ col })),

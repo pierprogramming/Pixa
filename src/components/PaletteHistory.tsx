@@ -2,6 +2,7 @@ import { useColor } from "../store/PaletteStore";
 
 const PaletteHistory = () => {
   const { usedColor, setCurrentColor } = useColor();
+
   return (
     <div className="overflow-auto rounded-md m-4 bg-[#FFFFFC] h-100 py-10 px-4">
       <ul className="flex flex-wrap justify-center gap-4">

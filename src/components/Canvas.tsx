@@ -1,14 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCanvas, useSquare, type ISquare } from "../store/GridStore";
 import Square from "./Square";
+import { useColor } from "../store/PaletteStore";
 
-const ROW_SIZE = 70;
-const COL_SIZE = 90;
+const ROW_SIZE = 40;
+const COL_SIZE = 40;
 
 const Canvas = () => {
   const { setCol, setKey, setRow, setMouseIsDown, setMouseIsOver, setColor } =
     useSquare();
   const { canvas, setCanvas } = useCanvas();
+  const { currentColor } = useColor();
+  const [isPressed, setIsPressed] = useState(false);
 
   useEffect(() => {
     createGrid();
@@ -23,7 +26,6 @@ const Canvas = () => {
       }
       canvas.push(row);
     }
-    console.log(canvas);
 
     setCanvas(canvas);
   };
@@ -32,7 +34,7 @@ const Canvas = () => {
     return {
       row: row,
       col: col,
-      key: `row-${row}-col${col}`,
+      key: `row-${row}-col-${col}`,
       color: "#FFFFFF",
       mouseIsDown: false,
       mouseIsOver: false,
@@ -45,6 +47,24 @@ const Canvas = () => {
     };
   };
 
+  const handleFillSquare = (row: number, col: number) => {
+    const newCanvas = canvas.slice();
+    const square = newCanvas[row][col];
+    if (square.color !== currentColor && isPressed) {
+      const newSquare = {
+        ...square,
+        color: currentColor,
+        mouseIsDown: true,
+      };
+
+      newCanvas[row][col] = newSquare;
+      setCanvas(newCanvas);
+    }
+  };
+
+  const check = () => {
+    console.log(canvas[0][0]);
+  };
   return (
     <div className="m-10">
       {canvas.map((sq, rId) => {
@@ -54,8 +74,15 @@ const Canvas = () => {
             id={`row-${rId}`}
             key={`row-${rId}`}
           >
-            {sq.map((s) => {
-              return <Square sq={s} key={s.key} />;
+            {sq.map((s, cId) => {
+              return (
+                <Square
+                  sq={s}
+                  key={`row-${rId}-col-${cId}`}
+                  fillSquare={handleFillSquare}
+                  setIsPressed={setIsPressed}
+                />
+              );
             })}
           </div>
         );
