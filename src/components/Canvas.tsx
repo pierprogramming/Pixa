@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useCanvas, useSquare, type ISquare } from "../store/GridStore";
 import { useColor } from "../store/PaletteStore";
 
-const ROW_SIZE = 95;
+const ROW_SIZE = 60;
 const COL_SIZE = 40;
 const SIZE = ROW_SIZE * COL_SIZE;
 
@@ -43,11 +43,11 @@ const Canvas = () => {
   };
 
   return (
-    <div
-      id="canvas"
-      className="flex flex-col items-center justify-start bg-[#c5c3c6]"
-    >
-      <div className="w-5/6">
+    <div className="flex flex-col items-center justify-center bg-[#c5c3c6]">
+      <div
+        className="flex flex-col items-center justify-center w-5/6 bg-[#c5c3c6]"
+        id="canvas"
+      >
         <div
           className="grid gap-[1px] m-10 p-7"
           style={{
