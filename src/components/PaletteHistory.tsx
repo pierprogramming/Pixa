@@ -2,6 +2,7 @@ import { useColor } from "../store/PaletteStore";
 
 const PaletteHistory = () => {
   const { usedColor, setCurrentColor } = useColor();
+
   const updateCurrentColor = (color: string) => {
     const colorPicker = document.getElementById(
       "color-picker"
@@ -9,6 +10,7 @@ const PaletteHistory = () => {
     if (colorPicker) colorPicker.value = color;
     setCurrentColor(color);
   };
+
   return (
     <div className="rounded-md m-4 bg-[#FFFFFC] h-20 py-4 px-4 w-2/6">
       <ul className="flex overflow-x-auto justify-start scrollbar-thin gap-4">

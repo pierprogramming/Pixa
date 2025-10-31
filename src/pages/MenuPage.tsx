@@ -1,3 +1,4 @@
+import { BsEraser } from "react-icons/bs";
 import ColorPicker from "../components/ColorPicker";
 import PaletteHistory from "../components/PaletteHistory";
 import { useDownloadCanvas } from "../hooks/useDownloadCanvas";
